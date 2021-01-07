@@ -15,10 +15,20 @@ You won't have non-root access to this.  You need to change your users permissio
 Go to: https://micropython.org/download/esp32/ and download the appropriate firmware.
 
 now install esptool via the following command and ignore any bdist wheel failures
-```pip install esptool``` 
-now press the 'Boot' button on the device (or a similar button) and run
-```esptool.py --chip esp32 --port /dev/ttyUSB0 erase_flash```
+```
+pip install esptool
+``` 
 
 now press the 'Boot' button on the device (or a similar button) and run
-```esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 460800 write_flash -z 0x1000 <path to firmware binary>```
+```
+esptool.py --chip esp32 --port /dev/ttyUSB0 erase_flash
+```
 
+now press the 'Boot' button on the device (or a similar button) and run
+```
+esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 460800 write_flash -z 0x1000 <path to firmware binary>
+```
+
+connect with
+
+`picocom /dev/ttyUSB0 -b115200`
